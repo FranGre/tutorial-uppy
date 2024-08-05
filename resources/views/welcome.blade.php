@@ -22,7 +22,7 @@
 <body class="font-sans antialiased
      dark:bg-neutral-900 dark:text-white/50">
 
-    <div id="uppy-image" ></div>
+    <div id="uppy-image"></div>
 
     <script type="module">
         import { Uppy, Dashboard, XHRUpload } from "https://releases.transloadit.com/uppy/v4.0.5/uppy.min.mjs"
@@ -31,7 +31,8 @@
         uppy.use(Dashboard, {
             target: '#uppy-image',
             inline: true,
-            theme: 'auto'
+            theme: 'auto',
+            showRemoveButtonAfterComplete: true
         })
 
         uppy.use(XHRUpload, {
@@ -40,6 +41,17 @@
             headers: {
                 'X-CSRF-Token': " {{ csrf_token() }} "
             }
+        })
+
+        uppy.on('file-removed', (file) => {
+            fetch('/delete/image', {
+                method: "DELETE",
+                body: JSON.stringify({name: file.name}),
+                headers: {
+                    'X-CSRF-TOKEN': '{{ csrf_token() }}',
+                    "Content-Type": "application/json"
+                }
+            })
         })
         
     </script>
