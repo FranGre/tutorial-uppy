@@ -26,13 +26,17 @@
 
 
     <script type="module">
-        import { Uppy, Dashboard } from "https://releases.transloadit.com/uppy/v4.0.5/uppy.min.mjs"
+        import { Uppy, Dashboard, XHRUpload } from "https://releases.transloadit.com/uppy/v4.0.5/uppy.min.mjs"
         const uppy = new Uppy()
 
         uppy.use(Dashboard, {
             target: '#uppy-image',
             inline: true,
             theme: 'auto'
+        })
+
+        uppy.use(XHRUpload, {
+            
         })
         
     </script>
