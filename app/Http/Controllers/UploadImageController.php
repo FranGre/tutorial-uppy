@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Image;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -25,6 +26,10 @@ class UploadImageController extends Controller
         $name = $image->getClientOriginalName();
 
         Storage::putFileAs($path, $file, $name);
+        Image::create([
+            'name' => $name,
+            'path' => $path
+        ]);
 
         return response()->json(['message' => "Image uploaded succesfully!"]);
     }
