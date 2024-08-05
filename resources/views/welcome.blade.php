@@ -31,7 +31,8 @@
 
         uppy.use(Dashboard, {
             target: '#uppy-image',
-            inline: true
+            inline: true,
+            theme: 'auto'
         })
         
     </script>
