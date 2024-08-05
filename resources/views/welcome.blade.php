@@ -22,8 +22,7 @@
 <body class="font-sans antialiased
      dark:bg-neutral-900 dark:text-white/50">
 
-    <div id="uppy-image"></div>
-
+    <div id="uppy-image" ></div>
 
     <script type="module">
         import { Uppy, Dashboard, XHRUpload } from "https://releases.transloadit.com/uppy/v4.0.5/uppy.min.mjs"
