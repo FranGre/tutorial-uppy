@@ -26,6 +26,6 @@ class UploadImageController extends Controller
 
         Storage::putFileAs($path, $file, $name);
 
-        return response()->json(['message' => "Image uploaded succesfully!"]); 
+        return response()->json(['message' => "Image uploaded succesfully!"]);
     }
 }
