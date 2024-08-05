@@ -36,7 +36,11 @@
         })
 
         uppy.use(XHRUpload, {
-            
+            endpoint: '/upload/image',
+            fieldName: 'image',
+            headers: {
+                'X-CSRF-Token': " {{ csrf_token() }} "
+            }
         })
         
     </script>
