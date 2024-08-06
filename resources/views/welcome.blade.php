@@ -26,7 +26,14 @@
 
     <script type="module">
         import { Uppy, Dashboard, XHRUpload } from "https://releases.transloadit.com/uppy/v4.0.5/uppy.min.mjs"
-        const uppy = new Uppy()
+        const uppy = new Uppy({
+            restrictions: {
+                maxFileSize: 31457280,
+                maxNumberOfFiles: 1,
+                minNumberOfFiles: 1,
+                allowedFileTypes: ['image/*']
+            }
+        })
 
         uppy.use(Dashboard, {
             target: '#uppy-image',
