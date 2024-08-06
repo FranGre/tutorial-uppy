@@ -9,4 +9,4 @@ Route::get('/', function () {
 });
 
 Route::post('/upload/image', UploadImageController::class)->name('upload.image');
-Route::post('/delete/image', DeleteImageController::class)->name('delete.image');
+Route::delete('/delete/image', DeleteImageController::class)->name('delete.image');
